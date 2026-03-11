@@ -16,3 +16,17 @@ jobs:
 
     - name: kubectl setup | Kubernetes CLI
       uses: ghostzero/kubectl@v1
+    
+    - name: Create Kubernetes Cluster
+      run: |
+        kind create cluster --name my-cluster
+    - name: Apply Kubernetes Deployment
+      run: kubectl apply -f deployment.yaml
+    - name: Apply Kubernetes Service
+      run: kubectl apply -f service.yaml
+    - name: Apply Kubernetes DB
+      run: kubectl apply -f mydb.yaml
+    - name: Create a Kubernetes Secret
+      run: kubectl create secret generic mysecret --from-literal POSTGRES_PASSWORD=steve3571 --from-literal POSTGRES_USER=root --from-literal POSTGRES_DB=focus
+    - name: Wait for Deployment to be ready
+      run: kubectl rollout status deployment/mydeployment
