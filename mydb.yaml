@@ -17,9 +17,4 @@ spec:
       containers:
         - name: mydb
           image: postgres
-          envFrom: 
-          - secretRef:
-              name: mysecret
-
-
-
+          
