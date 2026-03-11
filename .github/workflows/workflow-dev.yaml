@@ -16,8 +16,3 @@ jobs:
 
     - name: kubectl setup | Kubernetes CLI
       uses: ghostzero/kubectl@v1
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
